@@ -1,9 +1,22 @@
 # 🧠 Snippet Vault
 
-Mini fullstack application for storing useful snippets (links, notes,
-commands) with search, tags, and pagination.
+Mini fullstack application for storing and managing snippets (links, notes, commands) with search, tag filtering and pagination. Built as a practical CRUD system with real-world architecture and deployment.
 
-------------------------------------------------------------------------
+
+## 🌍 Live Demo
+
+Frontend:
+https://snippet-vault-silk.vercel.app
+
+Backend:
+https://snippet-vault-api-l9b6.onrender.com
+
+## ⚠️ Notes
+
+- Backend runs on Render (free tier - may sleep after inactivity)
+
+- First request may take up to 30–60 seconds
+
 
 ## 🚀 Tech Stack
 
@@ -20,7 +33,6 @@ commands) with search, tags, and pagination.
 - MongoDB
 - Mongoose
 
-------------------------------------------------------------------------
 
 ## 📦 Features
 
@@ -33,7 +45,6 @@ commands) with search, tags, and pagination.
 - Form validation
 - Loading / empty / error UI states
 
-------------------------------------------------------------------------
 
 ## 📁 Project Structure
 
@@ -41,7 +52,6 @@ snippet-vault/
 ├── backend/  
 └── frontend/
 
-------------------------------------------------------------------------
 
 ## ⚙️ Environment Variables
 
@@ -55,7 +65,6 @@ FRONTEND_URL=http://localhost:3000
 
 NEXT_PUBLIC_API_URL=http://localhost:3001  
 
-------------------------------------------------------------------------
 
 ## 📄 .env.example
 
@@ -69,7 +78,6 @@ FRONTEND_URL=http://localhost:3000
 
 NEXT_PUBLIC_API_URL=http://localhost:3001  
 
-------------------------------------------------------------------------
 
 ## ▶️ Run Locally
 
@@ -93,17 +101,15 @@ npm run dev
 
 Frontend: http://localhost:3000  
 
-------------------------------------------------------------------------
 
 ## 🔌 API Endpoints
 
-POST /snippets  
-GET /snippets?page=1&limit=10&q=search&tag=tag  
-GET /snippets/:id  
-PATCH /snippets/:id  
-DELETE /snippets/:id  
+- `POST /snippets`
+- `GET /snippets?page=1&limit=10&q=search&tag=tag`
+- `GET /snippets/:id`
+- `PATCH /snippets/:id`
+- `DELETE /snippets/:id`
 
-------------------------------------------------------------------------
 
 ## 📬 API Testing
 
@@ -168,7 +174,6 @@ Delete snippet:
 
 curl -X DELETE http://localhost:3001/snippets/:id
 
-------------------------------------------------------------------------
 
 ## 📦 Verify MongoDB Data (via mongosh)
 
@@ -177,7 +182,6 @@ use snippet-vault
 show collections  
 db.snippets.find().pretty()  
 
-------------------------------------------------------------------------
 
 ## 🏗 Build & Run in Production
 
@@ -191,7 +195,6 @@ npm run start:prod
 npm run build  
 npm run start  
 
-------------------------------------------------------------------------
 
 ## 🧪 What is covered
 
@@ -204,7 +207,6 @@ npm run start
 - Clean architecture (NestJS)  
 - Clean UI (Next.js)  
 
-------------------------------------------------------------------------
 
 ## ❌ Not implemented (by design)
 
@@ -213,25 +215,19 @@ npm run start
 - Complex architecture  
 - External services  
 
-------------------------------------------------------------------------
 
-## ⚠️ What I didn't finish
+## 🔧 Improvements & Next Steps
 
-All core requirements are implemented.  
-Further improvements are listed below.  
+All core requirements were implemented within the given time.
+Given more time, I would focus on:
 
-------------------------------------------------------------------------
+- improving UX feedback (toasts, better error handling)
+- adding debounced search
+- implementing sorting (by date/type)
+- writing unit and e2e tests
+- improving accessibility
+- adding Docker support
 
-## 🔧 What I would improve next
-
-- Debounced search  
-- Better notifications (toasts)  
-- Sorting (by date/type)  
-- Accessibility improvements  
-- Unit / e2e tests  
-- Docker setup  
-
-------------------------------------------------------------------------
 
 ## 👤 Author
 

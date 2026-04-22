@@ -2,37 +2,39 @@
 
 Mini fullstack application for storing and managing snippets (links, notes, commands) with search, tag filtering and pagination. Built as a practical CRUD system with real-world architecture and deployment.
 
+---
 
 ## 🌍 Live Demo
 
-Frontend:
-https://snippet-vault-silk.vercel.app
+Frontend:  
+https://snippet-vault-silk.vercel.app  
 
-Backend:
-https://snippet-vault-api-l9b6.onrender.com
+Backend:  
+https://snippet-vault-api-l9b6.onrender.com  
+
+---
 
 ## ⚠️ Notes
 
 - Backend runs on Render (free tier - may sleep after inactivity)
-
 - First request may take up to 30–60 seconds
 
+---
 
 ## 🚀 Tech Stack
 
 ### Frontend
-
 - Next.js (App Router)
 - TypeScript
 - Tailwind CSS + DaisyUI
 
 ### Backend
-
 - NestJS
 - TypeScript
 - MongoDB
 - Mongoose
 
+---
 
 ## 📦 Features
 
@@ -45,62 +47,65 @@ https://snippet-vault-api-l9b6.onrender.com
 - Form validation
 - Loading / empty / error UI states
 
+---
 
 ## 📁 Project Structure
 
-snippet-vault/  
-├── backend/  
+```text
+snippet-vault/
+├── backend/
 └── frontend/
+```
 
+---
 
 ## ⚙️ Environment Variables
 
-### backend/.env
-
-PORT=3001  
-MONGODB_URI=mongodb://localhost:27017/snippet-vault  
-FRONTEND_URL=http://localhost:3000  
-
-### frontend/.env.local
-
-NEXT_PUBLIC_API_URL=http://localhost:3001  
+Create environment files based on the examples below.
 
 
 ## 📄 .env.example
 
-### backend/.env.example
+### Backend
+```env
+PORT=3001
+MONGODB_URI=mongodb://localhost:27017/snippet-vault
+FRONTEND_URL=http://localhost:3000
+```
 
-PORT=3001  
-MONGODB_URI=mongodb://localhost:27017/snippet-vault  
-FRONTEND_URL=http://localhost:3000  
+### Frontend
+```env
+NEXT_PUBLIC_API_URL=http://localhost:3001
+```
 
-### frontend/.env.example
+> For production, MongoDB Atlas is used.
 
-NEXT_PUBLIC_API_URL=http://localhost:3001  
-
+---
 
 ## ▶️ Run Locally
 
 ### 1. Start MongoDB
-
-brew services start mongodb-community@7.0  
+```bash
+brew services start mongodb-community@7.0
+```
 
 ### 2. Start Backend
-
-cd backend  
-npm install  
-npm run start:dev  
-
+```bash
+cd backend
+npm install
+npm run start:dev
+```
 Backend: http://localhost:3001  
 
 ### 3. Start Frontend
-
-cd frontend  
-npm install  
-npm run dev  
-
+```bash
+cd frontend
+npm install
+npm run dev
+```
 Frontend: http://localhost:3000  
 
+---
 
 ## 🔌 API Endpoints
 
@@ -110,6 +115,7 @@ Frontend: http://localhost:3000
 - `PATCH /snippets/:id`
 - `DELETE /snippets/:id`
 
+---
 
 ## 📬 API Testing
 
@@ -117,108 +123,56 @@ You can test the API using Postman or curl.
 
 ### 🔹 Option 1: Postman
 
-Import the Postman collection:
-
 1. Open Postman  
 2. Click Import  
 3. Select snippet-vault.postman_collection.json  
-4. Use base URL:
-
-http://localhost:3001
-
-Notes:
-- Replace :id with a real snippet ID  
-- Make sure the backend is running  
+4. Use base URL: http://localhost:3001  
 
 ### 🔹 Option 2: curl
 
 Create snippet:
-
+```bash
 curl -X POST http://localhost:3001/snippets \
   -H "Content-Type: application/json" \
-  -d '{  
-    "title": "Docker command",  
-    "content": "docker compose up --build",  
-    "tags": ["docker", "devops"],  
-    "type": "command"  
+  -d '{
+    "title": "Docker command",
+    "content": "docker compose up --build",
+    "tags": ["docker", "devops"],
+    "type": "command"
   }'
+```
 
 Get all snippets:
-
+```bash
 curl "http://localhost:3001/snippets?page=1&limit=10"
-
-Search snippets:
-
-curl "http://localhost:3001/snippets?q=docker"
-
-Filter by tag:
-
-curl "http://localhost:3001/snippets?tag=docker"
+```
 
 Get snippet by ID:
-
+```bash
 curl http://localhost:3001/snippets/:id
+```
 
-Update snippet:
-
-curl -X PATCH http://localhost:3001/snippets/:id \
-  -H "Content-Type: application/json" \
-  -d '{  
-    "title": "Updated title",  
-    "content": "Updated content",  
-    "tags": ["updated"],  
-    "type": "note"  
-  }'
-
-Delete snippet:
-
-curl -X DELETE http://localhost:3001/snippets/:id
-
-
-## 📦 Verify MongoDB Data (via mongosh)
-
-mongosh  
-use snippet-vault  
-show collections  
-db.snippets.find().pretty()  
-
+---
 
 ## 🏗 Build & Run in Production
 
 ### Backend
-
-npm run build  
-npm run start:prod  
+```bash
+npm run build
+npm run start:prod
+```
 
 ### Frontend
+```bash
+npm run build
+npm run start
+```
 
-npm run build  
-npm run start  
-
-
-## 🧪 What is covered
-
-- CRUD API  
-- DTO validation  
-- Error handling (400 / 404)  
-- Pagination  
-- Search + filtering  
-- MongoDB integration  
-- Clean architecture (NestJS)  
-- Clean UI (Next.js)  
-
-
-## ❌ Not implemented (by design)
-
-- Authentication  
-- File uploads  
-- Complex architecture  
-- External services  
-
+---
 
 ## 🔧 Improvements & Next Steps
 
-All core requirements were implemented within the given time.
+All core requirements were implemented within the given time.  
 Given more time, I would focus on:
 
 - improving UX feedback (toasts, better error handling)
@@ -228,6 +182,7 @@ Given more time, I would focus on:
 - improving accessibility
 - adding Docker support
 
+---
 
 ## 👤 Author
 
